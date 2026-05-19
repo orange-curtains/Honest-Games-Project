@@ -1,0 +1,110 @@
+---
+import HomeInfoCarouselPage from "../components/homeInfoCarouselPage.astro";
+---
+
+<ul class="flex overflow-x-scroll snap-x snap-mandatory">
+    <HomeInfoCarouselPage
+        carouselHeading="Loot Boxes"
+        carouselText="Virtual boxes that can be bought with real money or earned through gameplay, containing random in-game items. They are designed to encourage repeated purchases and can lead to gambling-like behavior."
+        carouselImage="https://placehold.co/400x300"
+        carouselLink="index.html"
+        carouselDataName="Loot Boxes"
+    />
+    <HomeInfoCarouselPage
+        carouselHeading="Time-Limited Sales"
+        carouselText="Offers that are only available for a short period, creating a sense of urgency. This tactic pressures players into making impulsive purchases to avoid missing out on discounts or exclusive items."
+        carouselImage="https://placehold.co/400x300"
+        carouselLink="index.html"
+        carouselDataName="Time-Limited Sales"
+    />
+    <HomeInfoCarouselPage
+        carouselHeading="Pay-to-Win Mechanics"
+        carouselText="Game features that allow players to purchase advantages or powerful items with real money. This creates an uneven playing field and can diminish the enjoyment of the game for those who choose not to spend extra money."
+        carouselImage="https://placehold.co/400x300"
+        carouselLink="index.html"
+        carouselDataName="Pay-to-Win Mechanics"
+    />
+</ul>
+
+<style>
+    ul {
+        anchor-name: --my-carousel;
+        scroll-marker-group: after;
+    }
+    ul::scroll-button(*) {
+        border: 0;
+        font-size: 9rem;
+        background: none;
+        color: var(--color-secondaryBrand);
+        opacity: 1;
+        cursor: pointer;
+        position: absolute;
+        position-anchor: --my-carousel;
+        font-family: var(--font-accent);
+    }
+
+    ul::scroll-button(*):hover,
+    ul::scroll-button(*):focus {
+        opacity: 1;
+    }
+
+    ul::scroll-button(*):active {
+        translate: 0.1rem 0.1rem;
+    }
+
+    ul::scroll-button(*):disabled {
+        opacity: 0.5;
+        cursor: unset;
+    }
+
+    ul::scroll-marker-group {
+        position: absolute;
+        position-anchor: --my-carousel;
+        top: calc(anchor(bottom) - 12.8rem);
+        justify-self: anchor-center;
+
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    @media screen and (min-width: 1024px) {
+        ul::scroll-button(left) {
+            content: "<" / "Previous";
+            bottom: calc(anchor(top) - 23rem);
+            left: calc(anchor(left) - 10rem);
+        }
+
+        ul::scroll-button(right) {
+            content: ">" / "Next";
+            bottom: calc(anchor(top) - 23rem);
+            left: calc(anchor(right) + 1.8rem);
+        }
+    }
+    @media screen and (max-width: 1024px){
+        ul::scroll-marker-group {
+        top: calc(anchor(bottom) - 5.5rem);
+    }
+    }
+    
+</style>

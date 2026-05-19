@@ -1,0 +1,12 @@
+---
+const { mainHeroHeading, mainHeroSubheading, mainHeroText } = Astro.props;
+---
+
+<div class="flex flex-col text-center my-40 mx-auto max-w-[95%] xl:mt-80 xl:mb-100">
+    <h1 class="font-extrabold text-mainBrand text-[2.7rem]/[4.5rem] mb-30 xl:text-[6rem]/[6.5rem] xl:mx-auto xl:mb-50 xl:max-w-1600">
+        {mainHeroHeading}<br /><span class="text-[4rem]/[4.5rem] xl:text-[8rem]/[8.5rem]"
+            >{mainHeroSubheading}</span
+        >
+    </h1>
+    <p class="text-[2rem]/[3.2rem] mx-30 xl:max-w-900 xl:mx-auto xl:text-[2.5rem]/[4.5rem]">{mainHeroText}</p>
+</div>

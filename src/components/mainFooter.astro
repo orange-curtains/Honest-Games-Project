@@ -1,0 +1,74 @@
+---
+import footerLogo from "../assets/logo/honest-games-logo-footer.png";
+import instagramIcon from "../assets/logo/instagram-logo.png";
+import youtubeIcon from "../assets/icons/youtube-logo.png";
+import twitterIcon from "../assets/icons/twitter-logo.png";
+---
+
+<footer class="flex flex-col items-center gap-34 pt-80 bg-mainBrand">
+    <a href="index.html"
+        ><img
+            class="max-w-[80%] m-auto transition-transform duration-500 hover:scale-103 lg:max-w-365 lg:m-0"
+            id="footerLogo"
+            src={footerLogo.src}
+            alt="The Honest Games Project"
+        />
+    </a>
+    <nav>
+        <ul
+            class="flex justify-evenly items-center gap-20 flex-col lg:flex-row lg:py-20 lg:gap-40"
+        >
+            <li>
+                <a
+                    class="text-[2rem] text-secondaryBrand font-extrabold uppercase"
+                    href="/">Home</a
+                >
+            </li>
+            <li>
+                <a
+                    class="text-[2rem] text-secondaryBrand font-extrabold uppercase"
+                    href="/">Knowledge Base</a
+                >
+            </li>
+            <li>
+                <a
+                    class="text-[2rem] text-secondaryBrand font-extrabold uppercase"
+                    href="/">Take Action</a
+                >
+            </li>
+            <li>
+                <a
+                    class="text-[2rem] text-secondaryBrand font-extrabold uppercase"
+                    href="/">About</a
+                >
+            </li>
+        </ul>
+    </nav>
+    <ul
+        class="flex justify-evenly items-center gap-25 pb-50 lg:gap-30"
+        id="footerSocialMedia"
+    >
+        <li>
+            <a
+                class="transition-transform duration-500 hover:scale-105"
+                href="index.html"
+                ><img class="w-30" src={instagramIcon.src} alt="Instagram" /></a
+            >
+        </li>
+        <li>
+            <a
+                class="transition-transform duration-500 hover:scale-105"
+                href="index.html"
+                ><img class="w-30" src={youtubeIcon.src} alt="YouTube" /></a
+            >
+        </li>
+        <li>
+            <a
+                class="transition-transform duration-500 hover:scale-105"
+                href="index.html"
+                ><img class="w-30" src={twitterIcon.src} alt="Twitter" /></a
+            >
+        </li>
+    </ul>
+    <p class="text-secondaryBrand pb-10">Honest Games Project</p>
+</footer>

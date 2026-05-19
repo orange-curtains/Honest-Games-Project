@@ -1,0 +1,15 @@
+---
+import MainLayout from "../../layouts/mainLayout.astro";
+
+import "../../styles/global.css";
+
+const allDesigns = Object.values(
+    import.meta.glob("./**/*.md", { eager: true }),
+);
+---
+
+<MainLayout metaTitle="Blog" metaDescription="">
+    <main>
+        <h1>Blog</h1>
+    </main>
+</MainLayout>

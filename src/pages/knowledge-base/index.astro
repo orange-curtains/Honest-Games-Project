@@ -1,0 +1,183 @@
+---
+import MainLayout from "../../layouts/mainLayout.astro";
+import DpGridBox from "../../components/dpGridBox.astro";
+
+import "../../styles/global.css";
+
+const allDesigns = Object.values(
+    import.meta.glob("./**/*.md", { eager: true }),
+);
+const totalDesigns = allDesigns.length;
+const totalDesignCategories = [
+    ...new Set(allDesigns.map((design) => design.frontmatter.category)),
+];
+---
+
+<MainLayout metaTitle="Knowledge Base" metaDescription="">
+    <main>
+        <div
+            class="bg-mainBrand bg-[url(/assets/game-background-texture-bottom.svg)] bg-size-100% bg-no-repeat bg-position-[0_-25rem] pt-70 pb-40 px-40 text-center lg:min-h-550 lg:flex lg:justify-center lg:flex-col"
+        >
+            <h1
+                class="text-heroHead text-secondaryBrand mb-20 lg:text-lgHeroHead"
+            >
+                Deceptive Pattern Database
+            </h1>
+            <p
+                class="text-bodyCopy text-secondaryBrand lg:max-w-1080 lg:mx-auto lg:text-lgBodyCopy"
+            >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud.
+            </p>
+        </div>
+        <div class="bg-secondaryBrand">
+            <div
+                class="text-mainBrand max-w-[90%] mx-auto flex gap-20 flex-wrap justify-between my-30 lg:max-w-600"
+            >
+                <div class="shadow-highlight p-10 rounded-2xl m-0 my-auto">
+                    <label for="Categories" class="sr-only">Categories</label>
+                    <select
+                        class="uppercase font-semibold text-[2rem] lg:w-xs"
+                        id="categoriesFilter"
+                    >
+                        <option value="all" class="filterOption">
+                            Show All
+                        </option>
+                        {
+                            totalDesignCategories.map((category) => (
+                                <option value={category} class="filterOption">
+                                    {category}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+                <div class="flex flex-row items-center py-10">
+                    <p>Filter:</p>
+                    <div id="filterDisplay" class="flex flex-row items-center">
+                        <p
+                            class="uppercase font-semibold text-[2rem] shadow-highlight rounded-2xl p-10 ml-10"
+                            id="all"
+                        >
+                            All
+                        </p>
+                    </div>
+                </div>
+                <div class="shadow-highlight rounded-2xl w-full">
+                    <label for="site-search" class="sr-only"
+                        >Search the site:</label
+                    >
+                    <input
+                        class="uppercase font-semibold text-[2rem] w-full p-10"
+                        type="search"
+                        id="site-search"
+                        name="Search"
+                        placeholder="Search"
+                        value=""
+                    />
+                </div>
+                <div>
+                    <p id="resultsCount" class="text-[2rem]">
+                        Displaying {totalDesigns} results
+                    </p>
+                </div>
+            </div>
+            <div class="my-100">
+                <ul
+                    class="w-[90%] mx-auto flex flex-col gap-70 lg:max-w-1600 lg:flex-row lg:flex-wrap lg:gap-35 lg:justify-center"
+                    id="dpGrid"
+                >
+                    {
+                        allDesigns.map((design: any) => (
+                            <DpGridBox
+                                title={design.frontmatter.title}
+                                category={design.frontmatter.category}
+                                description={design.frontmatter.description}
+                                link={design.url}
+                            />
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </main>
+</MainLayout>
+
+<script>
+    // Gets categories filter, dp bxoes, filter display, results count, and search input
+    const categoriesFilter = document.getElementById("categoriesFilter");
+    const dpGridBoxes = document.querySelectorAll(".dpBox");
+    console.log(dpGridBoxes);
+    const filterDisplay = document.getElementById("filterDisplay");
+    const resultsCountElement = document.getElementById("resultsCount");
+    const searchInput = document.getElementById(
+        "site-search",
+    ) as HTMLInputElement;
+
+    const allFilters = {
+        search: "",
+        category: "all",
+    };
+
+    // Add events listener to search filter and categories filter
+    searchInput?.addEventListener("input", searchFilter);
+    categoriesFilter?.addEventListener("change", categoryFilter);
+
+    // Function to handle category filter change
+    function categoryFilter() {
+        let selectedCategory = (categoriesFilter as HTMLSelectElement)?.value;
+        let filteredCount = dpGridBoxes.length;
+        if (selectedCategory === "all") {
+            dpGridBoxes.forEach((box) => {
+                box.classList.remove("hidden");
+            });
+        } else {
+            dpGridBoxes.forEach((box) => {
+                if (box.classList.contains(selectedCategory)) {
+                    box.classList.remove("hidden");
+                } else {
+                    box.classList.add("hidden");
+                }
+            });
+        }
+        allFilters.category = selectedCategory;
+        applyDisplayFilter();
+        updateResultsCount();
+    }
+
+    // Function to handle search filter change
+    function searchFilter() {
+        let searchTerm = searchInput?.value || "";
+
+        dpGridBoxes.forEach((box) => {
+            if (
+                box.textContent
+                    ?.toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+            ) {
+                box.classList.remove("hidden");
+            } else {
+                box.classList.add("hidden");
+            }
+        });
+        allFilters.search = searchTerm;
+        applyDisplayFilter();
+        updateResultsCount();
+    }
+
+    // Updates the display filter by replacing the <p> element content with selected category and search. Called after filter changes
+    function applyDisplayFilter() {
+        if (searchInput?.value === "") {
+            filterDisplay!.innerHTML = `<p class="uppercase font-semibold text-[2rem] shadow-highlight rounded-2xl p-10 ml-10">${allFilters.category}</p>`;
+        } else {
+            filterDisplay!.innerHTML = `<p class="uppercase font-semibold text-[2rem] shadow-highlight rounded-2xl p-10 ml-10">${allFilters.category}</p> <p class="uppercase font-semibold text-[2rem] shadow-highlight rounded-2xl p-10 ml-10">${allFilters.search}</p>`;
+        }
+    }
+
+    // Updates display count by counting number of boxes that are no hidden. Called after filter changes
+    function updateResultsCount() {
+        const visibleBoxes = Array.from(dpGridBoxes).filter((box) => !box.classList.contains("hidden"));
+        resultsCountElement!.textContent = ` Displaying ${visibleBoxes.length} results`;
+    }
+</script>

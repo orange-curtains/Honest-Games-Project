@@ -1,0 +1,17 @@
+---
+import MainMeta from "../components/mainMeta.astro";
+import MainHeader from "../components/mainHeader.astro";
+import MainFooter from "../components/mainFooter.astro";
+
+const { metaTitle, metaDescription } = Astro.props;
+
+---
+
+<html class="font-primary" lang="en">
+  <MainMeta metaTitle={`${metaTitle} | Honest Games Project`} metaDescription={metaDescription} />
+  <body>
+    <MainHeader />
+    <slot />
+    <MainFooter />
+  </body>
+</html>

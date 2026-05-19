@@ -1,0 +1,158 @@
+---
+import MainLayout from "../layouts/mainLayout.astro";
+import MainHeroWhiteBG from "../components/mainHeroWhiteBG.astro";
+import Main3UpBox from "../components/main3UpBox.astro";
+import MainInfoCarousel from "../components/mainInfoCarousel.astro";
+
+import "../styles/global.css";
+---
+
+<MainLayout metaTitle="Take Action" metaDescription="">
+    <main>
+        <MainHeroWhiteBG
+            mainHeroHeading="Get Informed:"
+            mainHeroSubheading="Protect Yourself from Deceptive Patterns in Video Games"
+            mainHeroText="Modern video games can use sneaky tricks to get you to spend more money. Whether you’re playing a casual mobile game or the latest mega-hit, understanding these tricks can help you make better choices."
+        />
+        <div
+            class="bg-mainBrand min-h-100vh pt-100 pb-50 bg-[url(/assets/game-background-texture.svg)] bg-size-[80rem] xl:min-h-600 xl:bg-size-[150rem]"
+            id="quickLinkModule"
+        >
+            <div
+                class="bg-secondaryBrand flex flex-col max-w-[85%] m-auto rounded-3xl shadow-[3px_3px_25px_0px_#00000040] xl:w-800 xl:h-400"
+                id="quickLinkContainer"
+            >
+                <div
+                    class="order-1 -mt-50 py-40 pl-20 xl:order-0 xl:mt-30 xl:pl-40"
+                >
+                    <h2
+                        class="text-[3rem]/[4rem] font-extrabold text-mainBrand uppercase"
+                    >
+                        Quick Links
+                    </h2>
+                    <ul class="pl-20 text-[2.2rem] font-bold">
+                        <li class="mb-15 mt-15">
+                            <a class="hover:underline focus:underline" href="#">Common Deceptive Patterns</a>
+                        </li>
+                        <li class="mb-15 marker:text-[--linkColor]">
+                            <a class="hover:underline focus:underline" href="#">Real Life Harm</a>
+                        </li>
+                        <li class="mb-15"><a class="hover:underline focus:underline" href="#">Share your Story</a></li>
+                    </ul>
+                </div>
+                <img
+                    class="order-0 max-w-[65%] m-auto relative -top-50 rounded-3xl shadow-[3px_3px_25px_0px_#00000040] xl:order-1 xl:-top-275 xl:left-300"
+                    src="https://placehold.co/350x330"
+                />
+            </div>
+        </div>
+
+        <div class="my-70 xl:my-100" id="commoneDPModule">
+            <h2
+                class="uppercase font-extrabold text-mainBrand text-[4rem]/[4.5rem] text-center pb-20 m-auto xl:text-[6rem]/[6.5rem]"
+            >
+                COMMON DECEPTIVE PATTERNS
+            </h2>
+            <p
+                class="text-[2rem]/[3.2rem] px-30 text-center max-w-desktopWidth m-auto xl:max-w-900"
+            >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud.
+            </p>
+            <ul
+                class="flex gap-20 mt-60 overflow-x-auto overflow-y-hidden snap-x snap-mandatory lg:overflow-x-hidden lg:flex-wrap lg:max-w-1200 lg:mx-auto xl:justify-center items-start"
+            >
+                <Main3UpBox
+                    threeUpBoxLink="index.html"
+                    threeUpBoxTitle="Pay to Win"
+                    threeUpBoxText="Money"
+                    threeUpBoxImage="https://placehold.co/350x330"
+                />
+                <Main3UpBox
+                    threeUpBoxLink="index.html"
+                    threeUpBoxTitle="Grinding"
+                    threeUpBoxText="Time"
+                    threeUpBoxImage="https://placehold.co/350x330"
+                />
+                <Main3UpBox
+                    threeUpBoxLink="index.html"
+                    threeUpBoxTitle="Loot Boxes"
+                    threeUpBoxText="Money"
+                    threeUpBoxImage="https://placehold.co/350x330"
+                />
+                <Main3UpBox
+                    threeUpBoxLink="index.html"
+                    threeUpBoxTitle="Impersonation"
+                    threeUpBoxText="Social"
+                    threeUpBoxImage="https://placehold.co/350x330"
+                />
+                <Main3UpBox
+                    threeUpBoxLink="index.html"
+                    threeUpBoxTitle="Playing by Appointment"
+                    threeUpBoxText="Time"
+                    threeUpBoxImage="https://placehold.co/350x330"
+                />
+                <Main3UpBox
+                    threeUpBoxLink="index.html"
+                    threeUpBoxTitle="Social Pyramid Schemes"
+                    threeUpBoxText="Social"
+                    threeUpBoxImage="https://placehold.co/350x330"
+                />
+            </ul>
+        </div>
+
+        <div
+            class="bg-mainBrand bg-[url(/assets/game-background-texture-bottom.svg)] bg-size-100% bg-no-repeat bg-top pt-70 lg:py-100 lg:bg-position-[0_-25rem]"
+            id="harmModule"
+        ><div class="text-center lg:text-left lg:max-w-1080 lg:mx-auto">
+            <h2
+                class="uppercase font-extrabold text-[4rem]/[4.5rem] text-secondaryBrand pb-20 lg:text-[6.5rem]/[7rem]"
+            >
+                Real Life Harm
+            </h2>
+            <p
+                class="text-[2rem]/[3.2rem] px-30 text-secondaryBrand lg:text-[2.5rem]/[4.5rem] lg:px-0"
+            >
+                These two families lost thousands of dollars because their kids
+                impulsively spent money on microtransactions. Spending limits
+                could have prevented this.
+            </p>
+        </div>
+            <ul class="lg:max-w-1110 lg:mx-auto">
+                <div class="my-30 text-secondaryBrand">
+                    <MainInfoCarousel
+                        carouselHeading="Case Study 1"
+                        carouselText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi."
+                        carouselImage="https://placehold.co/350x330"
+                    />
+                    <MainInfoCarousel
+                        carouselHeading="Case Study 2"
+                        carouselText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi."
+                        carouselImage="https://placehold.co/350x330"
+                    />
+                </div>
+            </ul>
+
+            <div
+                class="bg-secondaryBrand max-w-[85%] m-auto px-20 py-40 rounded-2xl text-center lg:max-w-1080 lg:my-50" 
+                id="shareContainer"
+            >
+                <h2
+                    class="font-extrabold text-[3.5rem]/[4rem] mb-20 text-mainBrand lg:mb-30"
+                >
+                    Share your story with us
+                </h2>
+                <p class="text-[2rem]/[3.5rem] mb-30 lg:max-w-750 lg:mx-auto lg:mb-40">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud.
+                </p>
+                <button
+                    class="w-[80%] h-75 text-[3.5rem] font-extrabold bg-triggerBrand text-secondaryBrand rounded-2xl m-auto lg:max-w-400"
+                    >Button</button
+                >
+            </div>
+        </div>
+    </main>
+</MainLayout>

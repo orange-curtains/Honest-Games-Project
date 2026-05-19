@@ -1,0 +1,50 @@
+---
+const {
+    carouselHeading,
+    carouselText,
+    carouselImage,
+    carouselLink,
+    carouselDataName,
+} = Astro.props;
+---
+
+<li
+    class="px-20 py-35 bg-secondaryBrand
+    flex grow-0 shrink-0 basis-full snap-center
+    lg:flex-nowrap lg:px-60 lg:py-60"
+    data-accName={carouselDataName}
+>
+    <div class="flex flex-col lg:flex-row lg:flex-nowrap gap-20 lg:gap-40">
+        <div class="mb-10 order-1 lg:mb-0">
+            <h3 class="text-[3rem] font-bold mb-15">{carouselHeading}</h3>
+            <p class="text-[2rem]/[3.5rem]">
+                {carouselText}
+            </p>
+        </div>
+
+        <img class="mb-15 h-fit order-0 lg:mb-30" src={carouselImage} />
+    </div>
+</li>
+
+<style>
+    li::scroll-marker {
+        content: attr(data-accName);
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: transparent;
+        border: 2px solid var(--color-triggerBrand);
+        border-radius: 20%;
+        overflow: hidden;
+        text-indent: 1.5rem;
+    }
+
+    li::scroll-marker:target-current {
+        background-color: var(--color-triggerBrand);
+    }
+
+    @media screen and (max-width: 1024px) {
+        li::scroll-marker {
+            
+        }
+        }
+</style>

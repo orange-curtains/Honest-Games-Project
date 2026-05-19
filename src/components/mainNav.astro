@@ -1,0 +1,71 @@
+---
+import navLogo from "../assets/logo/navLogo.png";
+---
+
+<nav
+  class="bg-secondaryBrand lg:bg-transparent"
+  id="main-nav"
+  aria-label="main menu"
+>
+  <div class="flex justify-between p-10 px-35 lg:hidden">
+    <a href="/"><img class="max-w-70" src={navLogo.src} alt="home" /></a>
+    <button
+      aria-expanded="false"
+      aria-controls="menu"
+      aria-label="open menu"
+      id="hamburgerBtn"
+      onclick="mobileNavDisplay()"
+    >
+      <svg viewBox="0 0 100 80" width="30" height="30" fill="#3550ce">
+        <rect width="100" height="20"></rect>
+        <rect y="30" width="100" height="20"></rect>
+        <rect y="60" width="100" height="20"></rect>
+      </svg>
+    </button>
+  </div>
+  <ul
+    id="menu"
+    class="hidden m-auto pb-30 flex-col text-center lg:flex lg:flex-row lg:justify-center lg:gap-50 lg:items-center lg:pt-25 lg:pb-0 xl:gap-74"
+  >
+    <li class="relative lg:animate-[floatTop_800ms]">
+      <a class="text-[2rem] font-extrabold lg:text-[2.5rem]" href="/">Home </a>
+    </li>
+    <li class="relative lg:animate-[floatTop_700ms]">
+      <a class="text-[2rem] font-extrabold lg:text-[2.5rem]" href="/take-action"
+        >Take Action</a
+      >
+    </li>
+    <li class="relative lg:animate-[floatTop_600ms]">
+      <a class="hidden lg:block" href="/">
+        <img
+          class="max-w-80 hidden transition-transform duration-300ms hover:scale-[1.1] hover:-rotate-8 lg:block lg:max-w-175 lg:w-175"
+          src={navLogo.src}
+          alt="Honest Games Logo"
+          width="100"
+        />
+      </a>
+    </li>
+    <li class="relative lg:animate-[floatTop_700ms]">
+      <a
+        class="text-[2rem] font-extrabold lg:text-[2.5rem]"
+        href="/knowledge-base">Knowledge Base</a
+      >
+    </li>
+    <li class="relative lg:animate-[floatTop_800ms]">
+      <a class="text-[2rem] font-extrabold lg:text-[2.5rem]" href="/about"
+        >About</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const menu = document.getElementById("menu");
+  const menuBtn = document.getElementById("hamburgerBtn");
+
+  menuBtn?.addEventListener("click", () => {
+    const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+    menuBtn.setAttribute("aria-expanded", `${!isExpanded}`);
+    menu.classList.toggle("hidden");
+  });
+</script>

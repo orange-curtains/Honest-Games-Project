@@ -1,0 +1,38 @@
+---
+const { title, category, description, link } = Astro.props;
+---
+
+<li class={`dpBox ${category?.toLowerCase().replaceAll(" ", "-")}`}>
+    <a
+        href={link}
+        class="transition-transform duration-250 hover:scale-[1.025] text-copy inline-block"
+    >
+        <div
+            class="flex flex-col py-70 px-40 bg-secondaryBrand shadow-highlight items-center rounded-2xl lg:max-w-415 lg:h-450"
+        >
+            <h2 class="text-bodyHead text-left w-full order-1 mb-30">
+                {title}
+            </h2>
+            <div
+                class="bg-mainBrand rounded-4xl w-[70%] absolute -translate-y-89 shadow-highlight lg:w-280"
+            >
+                <p
+                    class="uppercase text-secondaryBrand font-bold text-center text-[2.4rem]/[3.5rem] order-0"
+                >
+                    {category}
+                </p>
+            </div>
+            <hr
+                class="order-1 mb-30 w-full border-0 border-t-2 border-[#BFBFBF]"
+            />
+            <p class="text-bodyCopy order-1 mb-30 lg:h-250">
+                {description}
+            </p>
+            <p
+                class="text-bodyCopy text-link hover:underline focus:underline order-1 text-left w-full"
+            >
+                Learn more
+            </p>
+        </div>
+    </a>
+</li>

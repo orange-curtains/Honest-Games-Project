@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* Custom Fonts setup */
+@font-face {
+    font-family: 'FFF Forward';
+    src: url('/assets/fonts/fff-forward.regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --font-primary: "Outfit", sans-serif;
+    --font-accent: "FFF Forward", sans-serif;
+}
+
+@theme {
+    /*Colors*/
+    --color-mainBrand: #3550ce;
+    --color-secondaryBrand: #fffafa;
+    --color-triggerBrand: #e52828;
+    --color-link: #4286f4;
+    --color-copy: #000000;
+    /*Fonts*/
+    --font-primary: var(--font-primary);
+    --font-accent: var(--font-accent);
+
+    /* Text Sizing Mobile */
+    --text-heroHead: 4rem;
+    --text-heroHead--line-height: 4.5rem;
+    --text-heroHead--font-weight: 800;
+    --text-heroSubHead: 3rem;
+    --text-heroSubHead--line-height: 3.5rem;
+    --text-heroSubHead--font-weight: 800;
+    --text-bodyHead: 3rem;
+    --text-bodyHead--line-height: 3.5rem;
+    --text-bodyHead--font-weight: 700;
+    --text-bodySubHead: 2.4rem;
+    --text-bodySubHead--line-height: 3.2rem;
+    --text-bodyCopy: 2rem;
+    --text-bodyCopy--line-height: 3.2rem;
+    --text-button: 3.5rem;
+    --text-button--line-height: 4rem;
+    --text-button--font-weight: 800;
+
+    /* Text Sizing Desktop*/
+    --text-lgHeroHead: 8rem;
+    --text-lgHeroHead--line-height: 8.5rem;
+    --text-lgHeroHead--font-weight: 800;
+    --text-lgHeroSubHead: 6.5rem;
+    --text-lgHeroSubHead--line-height: 6.5rem;
+    --text-lgHeroSubHead--font-weight: 800;
+    --text-lgBodyHead: 3rem;
+    --text-lgBodyHead--line-height: 3.5rem;
+    --text-lgBodyHead--font-weight: 700;
+    --text-lgBodySubHead: 2.5rem;
+    --text-lgBodySubHead--line-height: 4.5rem;
+    --text-lgBodyCopy: 2rem;
+    --text-lgBodyCopy--line-height: 4.5rem;
+    --text-lgButton: 4.5rem;
+    --text-lgButton--line-height: 4.5rem;
+    --text-lgButton--font-weight: 800;
+
+    /* Shadow */
+    --shadow-highlight: 3px 3px 25px 0px #00000040;
+
+    /*Module Width*/
+    --spacing-desktopWidth: 1080px;
+    /*Spacing*/
+    --spacing: 0.1rem;
+    /* Animation */
+    --animate-float-top: floatTop;
+
+    @keyframes floatTop {
+        from {
+            top: -5rem;
+            opacity: 0;
+        }
+
+        to {
+            top: 0;
+            opacity: 1;
+        }
+    }
+
+    --animate-pulsate: pulsate 3s ease-in-out infinite both;
+
+    @keyframes pulsate {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        50% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+}
+
+@layer base {
+
+    /* * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    } */
+    html {
+        /*for easy em&rem converstion*/
+        font-size: 10px;
+
+        /*Base colors*/
+        background-color: var(--color-secondaryBrand);
+        color: var(--color-copy);
+    }
+
+    body {
+        /*for accessibility*/
+        font-size: 100%;
+        ;
+    }
+
+    /*Basic Heading and Paragraph Styles*/
+    h1 {
+        font-size: 8rem;
+    }
+
+    h2 {
+        font-size: 6.5rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    a {
+        color: var(--color-link);
+    }
+}
+
+/* CUSTOM CSS */
+/* Header Nav */
+header nav ul li {
+    animation-fill-mode: both;
+}
+
+/* Animate links and make link area bigger on large width */
+@media screen and (min-width: 1024px) {
+
+    header li a,
+    footer li a {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        padding: 2.5rem;
+        margin: -2.5rem;
+        text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+        transition: text-decoration-color 300ms;
+        overflow: hidden;
+    }
+
+    /* header li a::after {
+    content: "";
+    padding: 50px;
+    position: absolute;
+    left: -25px;
+    top: -25px;
+} */
+
+    header li a:hover,
+    header li a:focus,
+    footer li a:hover,
+    footer li a:focus {
+        text-decoration-color: var(--mainBrandColor);
+        text-decoration-thickness: 0.5rem;
+    }
+
+    /* footer li a::after {
+    content: "";
+    padding: 2.5rem;
+    position: absolute;
+    left: -2.5rem;
+    top: -2.5rem;
+} */
+}

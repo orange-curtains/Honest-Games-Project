@@ -1,0 +1,22 @@
+---
+const { threeUpBoxLink, threeUpBoxTitle, threeUpBoxText, threeUpBoxImage } =
+    Astro.props;
+---
+
+<li class="snap-center">
+    <a
+        href={threeUpBoxLink}
+        class="transition-transform duration-250 hover:scale-[1.025] text-copy inline-block "
+    >
+        <div
+            class="flex flex-col w-300 pb-30 mb-30 bg-secondaryBrand lg:mb-20 lg:w-345"
+            style="box-shadow: 3px 3px 25px 0px #00000026;"
+        >
+            <h3 class="order-1 p-20 pb-0 text-[2rem] font-bold">
+                {threeUpBoxTitle}
+            </h3>
+            <p class="order-1 p-20 text-[2rem]/[3.5rem]">{threeUpBoxText}</p>
+            <img class="order-0 h-fit" src={threeUpBoxImage} />
+        </div>
+    </a>
+</li>

@@ -1,0 +1,149 @@
+---
+import MainLayout from "./mainLayout.astro";
+import DpGridBox from "../components/dpRelatedGridBox.astro";
+
+import "../styles/global.css";
+
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout
+    metaTitle={frontmatter.title}
+    metaDescription={frontmatter.description}
+>
+    <div class="max-w-[85%] mx-auto xl:max-w-1200">
+        <hr class="border-mainBrand border-3 xl:mt-50" />
+        <div class="mt-50 mb-50 xl:mt-60 xl:mb-75">
+            <p class="text-[2.4rem]/[3.4rem]">
+                <a href="/knowledge-base">Knowledge Base</a> / {frontmatter.category.toUpperCase().charAt(0) + frontmatter.category.slice(1)} / {
+                    frontmatter.title
+                }
+            </p>
+        </div>
+    </div>
+    <main class="mb-100">
+        <div class="max-w-[85%] mx-auto xl:max-w-1200">
+            <div class="mb-20 xl:mb-50">
+                <h1 class="text-heroHead mb-20">{frontmatter.title}</h1>
+                <p class="text-bodySubHead">{frontmatter.description}</p>
+            </div>
+            <div class="xl:flex xl:flex-row xl:gap-50">
+                <div class="mb-20 xl:mb-50">
+                    <h2 class="text-heroSubHead mb-20 xl:pt-50">Defined</h2>
+                    <p class="text-bodyCopy">{frontmatter.defined}</p>
+                </div>
+                <!-- Will display if there is at least one example -->
+                {
+                    frontmatter.exampleName1 && (
+                        <div class="mb-20 bg-mainBrand rounded-2xl text-secondaryBrand flex flex-col p-20 shadow-highlight xl:mb-50 xl:max-w-[40%] xl:py-50">
+                            <h2 class="text-heroSubHead mb-20 xl:text-center">
+                                Found In
+                            </h2>
+                            <ul class="flex flex-row flex-wrap gap-20 xl:flex xl:gap-30 xl:justify-center">
+                                {frontmatter.exampleName1 && (
+                                    <li class="min-w-120 text-center xl:flex xl:flex-row xl:text-left xl:items-center">
+                                        <img
+                                            class="mb-10  mr-20 shadow-highlight rounded-2xl w-150"
+                                            src={frontmatter.exampleImg1}
+                                            alt=""
+                                        />
+                                        <div>
+                                            <p class="text-[1.6rem] lg:text-[2.4rem] font-medium">
+                                                {frontmatter.exampleName1}
+                                            </p>
+                                            <p class="text-[1.2rem] lg:text-[1.8rem]">
+                                                As of {frontmatter.exampleDate1}
+                                            </p>
+                                        </div>
+                                    </li>
+                                )}
+                                {frontmatter.exampleName2 && (
+                                    <li class="min-w-120 text-center xl:flex xl:flex-row xl:text-left xl:items-center">
+                                        <img
+                                            class="mb-10  mr-20 shadow-highlight rounded-2xl w-150"
+                                            src={frontmatter.exampleImg2}
+                                            alt=""
+                                        />
+                                        <div>
+                                            <p class="text-[1.6rem] lg:text-[2.4rem] font-medium">
+                                                {frontmatter.exampleName2}
+                                            </p>
+                                            <p class="text-[1.2rem] lg:text-[1.8rem]">
+                                                As of {frontmatter.exampleDate2}
+                                            </p>
+                                        </div>
+                                    </li>
+                                )}
+                                {frontmatter.exampleName3 && (
+                                    <li class="min-w-120 text-center xl:flex xl:flex-row xl:text-left xl:items-center">
+                                        <img
+                                            class="mb-10  mr-20 shadow-highlight rounded-2xl w-150"
+                                            src={frontmatter.exampleImg3}
+                                            alt=""
+                                        />
+                                        <div>
+                                            <p class="text-[1.6rem] lg:text-[2.4rem] font-medium">
+                                                {frontmatter.exampleName3}
+                                            </p>
+                                            <p class="text-[1.2rem] lg:text-[1.8rem]">
+                                                As of {frontmatter.exampleDate3}
+                                            </p>
+                                        </div>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
+                    )
+                }
+            </div>
+            <div class="mb-30 xl:mb-50">
+                <h2 class="text-heroSubHead mb-20">Application</h2>
+                <p class="text-bodyCopy">{frontmatter.application}</p>
+                <!-- If application image exists -->
+                {frontmatter.applicationImg && (
+                    <figure>
+                    <img
+                        class="mt-20 shadow-highlight rounded-2xl w-full"
+                        src={frontmatter.applicationImg}
+                        alt=""
+                    />
+                    <figcaption class="text-center text-[1.8rem] lg:text-[2rem] mt-10">
+                        {frontmatter.applicationImgCaption}
+                    </figcaption>
+                    </figure>
+                )}
+            </div>
+            <section class="mb-30 xl:mb-50">
+                <h2 class="text-heroSubHead mb-20">References</h2>
+                <p class="text-bodyCopy">{frontmatter.references}</p>
+            </section>
+        </div>
+        <section class="mb-30 xl:mb-50 max-w-[85%] mx-auto xl:max-w-1600">
+            <h2 class="text-heroSubHead mb-20 max-w-1200 mx-auto">
+                Related Deceptive Patterns
+            </h2>
+            <ul
+                class="mx-auto flex flex-col gap-50 py-30 lg:max-w-1600 lg:flex-row lg:flex-wrap lg:gap-35 lg:justify-center lg:mt-30"
+            >
+                <DpGridBox
+                    title={frontmatter.relatedDpTitle1}
+                    category={frontmatter.relatedDpCategory1}
+                    description={frontmatter.relatedDpDescription1}
+                    link={frontmatter.relatedDpLink1}
+                />
+                <DpGridBox
+                    title={frontmatter.relatedDpTitle2}
+                    category={frontmatter.relatedDpCategory2}
+                    description={frontmatter.relatedDpDescription2}
+                    link={frontmatter.relatedDpLink2}
+                />
+                <DpGridBox
+                    title={frontmatter.relatedDpTitle3}
+                    category={frontmatter.relatedDpCategory3}
+                    description={frontmatter.relatedDpDescription3}
+                    link={frontmatter.relatedDpLink3}
+                />
+            </ul>
+        </section>
+    </main>
+</MainLayout>

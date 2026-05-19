@@ -1,0 +1,56 @@
+---
+import MainLayout from "../layouts/mainLayout.astro";
+import "../styles/global.css";
+
+---
+
+<MainLayout metaTitle="About" metaDescription="Learn about the creators of the Honest Game Project.">
+    <main class="max-w-[90%] mx-auto lg:max-w-1080">
+        <div
+            class="bg-[url(https://placehold.co/400x400)] mx-auto mt-50 mb-30 h-300 flex items-end justify-star rounded-2xl shadow-highlight bg-no-repeat bg-cover lg:mb-50"
+        >
+            <h1 class="text-heroHead text-secondaryBrand pl-5 lg:text-lgHeroHead lg:pl-25 lg:pb-15 ">About Us</h1>
+        </div>
+        <p class="text-bodySubHead mb-50 lg:mb-70 lg:text-lgBodySubHead">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <div class="mb-50 lg:mb-100">
+            <div class="flex flex-col gap-30 mb-30 lg:flex-row lg:items-center lg:mb-50">
+                <div class="order-1">
+                    <h2 class="text-bodyHead mb-10 lg:text-lgBodyHead">Alex</h2>
+                    <p class="text-bodyCopy lg:text-lgBodyCopy">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                    </p>
+                </div>
+                <img class="order-0 max-w-350" src="https://placehold.co/400x400" />
+            </div>
+            <div class="flex flex-col gap-30 lg:flex-row lg:items-center">
+                <div class="order-1">
+                    <h2 class="text-bodyHead mb-10 lg:text-lgBodyHead">Roan</h2>
+                    <p class="text-bodyCopy lg:text-lgBodyCopy">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
+                    </p>
+                </div>
+                <img class="order-0 max-w-350" src="https://placehold.co/400x400" />
+            </div>
+        </div>
+        <div
+            class="bg-secondaryBrand rounded-2xl mb-100 text-center shadow-highlight py-50"
+        >
+            <h2 class="text-heroSubHead mb-15 ">Get in Touch</h2>
+            <p class="mb-30 px-20 lg:max-w-750 lg:mx-auto lg:text-lgBodyCopy">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <button
+                class="w-[80%] h-75 text-button font-extrabold bg-triggerBrand text-secondaryBrand rounded-2xl m-auto lg:max-w-400"
+                >Button</button
+            >
+        </div>
+    </main></MainLayout
+>

@@ -1,0 +1,57 @@
+---
+import MainLayout from "../layouts/mainLayout.astro";
+import MainHeroWhiteBG from "../components/mainHeroWhiteBG.astro";
+import MainInfoCarousel from "../components/mainInfoCarousel.astro";
+
+import "../styles/global.css";
+---
+
+<MainLayout metaTitle="Spread the Word" metaDescription="">
+    <main>
+        <MainHeroWhiteBG
+            mainHeroHeading="Use Your Voice:"
+            mainHeroSubheading="File a Compliant"
+            mainHeroText="By filing a compliant, you directly help regulators go after companies that use deceptive practices, giving them the power to investigate and take action. Hold companies accountable for manipulative designs."
+        />
+        <div class="bg-mainBrand bg-[url(/assets/game-background-texture-bottom.svg)] bg-size-100% bg-no-repeat bg-top py-70 lg:bg-position-[0_-30rem] lg:py-100">
+            <div class="max-w-[85%] mx-auto">
+                <div class="text-center">
+                    <h2
+                        class="uppercase text-secondaryBrand text-heroHead mb-30"
+                    >
+                        SHARE YOUR EXPERIENCES WITH FTC
+                    </h2>
+                    <p class="text-secondaryBrand text-bodySubHead">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud.
+                    </p>
+                </div>
+                <div
+                    class="bg-secondaryBrand mx-auto my-50 rounded-2xl shadow-highlight lg:max-w-1080"
+                >
+                    <div class="flex flex-col px-20 py-50 lg:flex-row lg:gap-50">
+                        <div class=" order-1 flex flex-col items-center lg:items-start lg:w-full ">
+                        <h3 class="pt-25 pb-10 lg:pt-0">File a Comment</h3>
+                        <p class="">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud.
+                        </p>
+                        <a href="#" class="text-bodyCopy pt-10"
+                            >File a Comment</a
+                        >
+                        </div>
+                        <figure class="order-0 mx-auto w-fit lg:w-2/3">
+                            <img
+                                src="https://placehold.co/350x330"
+                                alt="File a Comment"
+                            />
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</MainLayout>
