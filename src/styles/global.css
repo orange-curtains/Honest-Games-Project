@@ -187,10 +187,15 @@ header nav ul li {
     top: -25px;
 } */
 
+    header li a[aria-current="page"] {
+        text-decoration-color: var(--mainBrandColor);
+        text-decoration-thickness: 0.5rem;
+    }
+
     header li a:hover,
     header li a:focus,
     footer li a:hover,
-    footer li a:focus {
+    footer li a:focus, {
         text-decoration-color: var(--mainBrandColor);
         text-decoration-thickness: 0.5rem;
     }

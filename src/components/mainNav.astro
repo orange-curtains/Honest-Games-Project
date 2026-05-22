@@ -1,5 +1,10 @@
 ---
 import navLogo from "../assets/logo/navLogo.png";
+
+const currentPath = Astro.url.pathname;
+function isActive(path: string) {
+  return currentPath === path || (path !== "/" && currentPath.startsWith(path));
+}
 ---
 
 <nav
@@ -28,10 +33,18 @@ import navLogo from "../assets/logo/navLogo.png";
     class="hidden m-auto pb-30 flex-col text-center lg:flex lg:flex-row lg:justify-center lg:gap-50 lg:items-center lg:pt-25 lg:pb-0 xl:gap-74"
   >
     <li class="relative lg:animate-[floatTop_800ms]">
-      <a class="text-[2rem] font-extrabold lg:text-[2.5rem]" href="/">Home </a>
+      <a
+        class="text-[2rem] font-extrabold lg:text-[2.5rem]"
+        href="/"
+        aria-current={isActive("/") ? "page" : undefined}
+        >Home
+      </a>
     </li>
     <li class="relative lg:animate-[floatTop_700ms]">
-      <a class="text-[2rem] font-extrabold lg:text-[2.5rem]" href="/take-action"
+      <a
+        class="text-[2rem] font-extrabold lg:text-[2.5rem]"
+        href="/take-action"
+        aria-current={isActive("/take-action") ? "page" : undefined}
         >Take Action</a
       >
     </li>
@@ -48,12 +61,16 @@ import navLogo from "../assets/logo/navLogo.png";
     <li class="relative lg:animate-[floatTop_700ms]">
       <a
         class="text-[2rem] font-extrabold lg:text-[2.5rem]"
-        href="/knowledge-base">Knowledge Base</a
+        href="/knowledge-base"
+        aria-current={isActive("/knowledge-base") ? "page" : undefined}
+        >Knowledge Base</a
       >
     </li>
     <li class="relative lg:animate-[floatTop_800ms]">
-      <a class="text-[2rem] font-extrabold lg:text-[2.5rem]" href="/about"
-        >About</a
+      <a
+        class="text-[2rem] font-extrabold lg:text-[2.5rem]"
+        href="/about"
+        aria-current={isActive("/about") ? "page" : undefined}>About</a
       >
     </li>
   </ul>
@@ -66,6 +83,6 @@ import navLogo from "../assets/logo/navLogo.png";
   menuBtn?.addEventListener("click", () => {
     const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
     menuBtn.setAttribute("aria-expanded", `${!isExpanded}`);
-    menu.classList.toggle("hidden");
+    menu?.classList.toggle("hidden");
   });
 </script>
