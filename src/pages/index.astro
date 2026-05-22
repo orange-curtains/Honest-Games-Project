@@ -3,6 +3,9 @@ import MainLayout from "../layouts/mainLayout.astro";
 
 import heroLogoDesktop from "../assets/logo/HG-Logo-Main.svg";
 import heroLogoMobile from "../assets/logo/HG-Logo-Centered-Mobile.svg";
+import chalkBoardUser from "../assets/icons/chalkboard-user-solid.png";
+import gamepad from "../assets/icons/gamepad-solid.png";
+import megaphone from "../assets/icons/bullhorn-solid.png";
 import rexSticker from "../assets/media/rex-sticker.png";
 import racoonSticker from "../assets/media/racoon-sticker.png";
 
@@ -59,7 +62,7 @@ import "../styles/global.css";
         <div
             id="hero"
             style={{ backgroundImage: `url(/assets/hero-illustration.png)` }}
-            class="min-h-1000 bg-size-[50rem] bg-no-repeat bg-position-[100%_100%] lg:min-h-850 lg:bg-position-center 2xl:bg-size-[50%]"
+            class="min-h-1000 bg-size-[50rem] bg-no-repeat bg-position-[100%_100%] sm:min-h-100vh md:bg-position-center lg:min-h-850 lg:bg-position-center 2xl:bg-size-[50%]"
         >
             <div id="heroText" class="lg:pl-200 pt-50">
                 <h1 class="upperCase pb-30">
@@ -71,7 +74,7 @@ import "../styles/global.css";
                     />
                     <img
                         id="mobileHero"
-                        class="w-max-400 py-10 lg:hidden"
+                        class="w-max-400 py-10 sm:max-w-300 md:max-w-[50%] mx-auto lg:hidden"
                         src={heroLogoMobile.src}
                         alt="The Honest Games Project"
                     />
@@ -81,7 +84,7 @@ import "../styles/global.css";
                             -->
                 </h1>
                 <p
-                    class="text-center text-[2.4rem]/[3.2rem] max-w-400 px-20 lg:text-left lg:text-[2.5rem]/[4.5rem] lg:max-w-675 lg:px-0 lg:pb-50"
+                    class="text-center text-[2.4rem]/[3.2rem] max-w-400 px-20 mx-auto md:max-w-600 lg:mx-0 lg:text-left lg:text-[2.5rem]/[4.5rem] lg:max-w-800 lg:px-0 lg:pb-50"
                 >
                     Let’s create a world of fun and fair games together. Leave
                     the manipulative marketing behind and support honest play.
@@ -113,19 +116,19 @@ import "../styles/global.css";
                         threeUpBoxLink="index.html"
                         threeUpBoxTitle="Get Informed"
                         threeUpBoxText="From mobile games to AAA titles, video games are using shady sales tactics to separate people from their hard-earned money."
-                        threeUpBoxImage="https://placehold.co/350x330"
+                        threeUpBoxImage={chalkBoardUser.src}
                     />
                     <Home3UpBox
                         threeUpBoxLink="index.html"
                         threeUpBoxTitle="Test your Game"
                         threeUpBoxText="Use the deceptive patterns calculator tool to discover if the games you love are subtly pushing you to spend more money."
-                        threeUpBoxImage="https://placehold.co/350x330"
+                        threeUpBoxImage={gamepad.src}
                     />
                     <Home3UpBox
                         threeUpBoxLink="index.html"
                         threeUpBoxTitle="Spread the Word"
                         threeUpBoxText="Don’t let your friends and family fall for the same traps. Learn the signs and start the conversation. Share these resources with friends."
-                        threeUpBoxImage="https://placehold.co/350x330"
+                        threeUpBoxImage={megaphone.src}
                     />
                 </ul>
             </div>
@@ -154,7 +157,7 @@ import "../styles/global.css";
                 spend more time and money in the game.
             </p>
             <div
-                class="max-w-[90%] m-auto shadow-[3px_3px_25px_0_rgba(0,0,0,0.15)] lg:max-w-1080"
+                class="max-w-[85%] m-auto shadow-[3px_3px_25px_0_rgba(0,0,0,0.15)] lg:max-w-1080"
                 id="DeceptivePatternsInfoContainer"
             >
                 <div
@@ -213,7 +216,7 @@ import "../styles/global.css";
                         />
                         <p class="animate-pulsate">
                             <a
-                                class="font-accent text-triggerBrand lowercase p-20 pl-0"
+                                class="font-accent text-triggerBrand lowercase p-20 pl-0 hover:underline"
                                 href="index.html">learn <wbr />more &#62;</a
                             >
                         </p>

@@ -2,109 +2,181 @@
 import HomeInfoCarouselPage from "../components/homeInfoCarouselPage.astro";
 ---
 
-<ul class="flex overflow-x-scroll snap-x snap-mandatory">
+<div
+  class="relative flex justify-center"
+  role="group"
+  aria-label="Deceptive Patterns"
+  aria-roledescription="carousel"
+  id="carousel-container"
+>
+  <div
+    class="carousel-navdots absolute bottom-20 left-0 right-0 flex justify-center gap-24"
+    role="group"
+    aria-label="Choose slide to display"
+  >
+    <button
+      type="button"
+      aria-label="1 of 3"
+      aria-disabled="true"
+      class="is-active hover-scale"></button>
+    <button type="button" aria-label="2 of 3" aria-disabled="false" class="hover-scale"></button>
+    <button type="button" aria-label="3 of 3" aria-disabled="false" class="hover-scale"></button>
+  </div>
+  <div role="group" aria-label="Move to next or previous slide">
+    <button
+      class="carousel-button text-[9rem] text-secondaryBrand hover-scale [-webkit-text-stroke-color:var(--color-mainBrand)] [-webkit-text-stroke-width:.2rem] opacity-100 cursor-pointer font-accent absolute hidden left-10 top-100 md:block lg-left-5 xl:-left-100"
+      id="carousel-prev"
+      aria-label="Previous">&#60;</button
+    >
+    <button
+      class="carousel-button text-[9rem] text-secondaryBrand hover-scale [-webkit-text-stroke-color:var(--color-mainBrand)] [-webkit-text-stroke-width:.2rem] opacity-100 cursor-pointer font-accent absolute hidden right-10 top-100 md:block  lg:-right-5 xl:-right-100"
+      id="carousel-next"
+      aria-label="Next">&#62;</button
+    >
+  </div>
+
+  <ul
+    class="flex overflow-x-scroll snap-x snap-mandatory"
+    id="carousel-wrapper"
+  >
     <HomeInfoCarouselPage
-        carouselHeading="Loot Boxes"
-        carouselText="Virtual boxes that can be bought with real money or earned through gameplay, containing random in-game items. They are designed to encourage repeated purchases and can lead to gambling-like behavior."
-        carouselImage="https://placehold.co/400x300"
-        carouselLink="index.html"
-        carouselDataName="Loot Boxes"
+      carouselHeading="Loot Boxes"
+      carouselText="Virtual boxes that can be bought with real money or earned through gameplay, containing random in-game items. They are designed to encourage repeated purchases and can lead to gambling-like behavior."
+      carouselImage="https://placehold.co/400x300"
+      carouselLink="index.html"
+      carouselDataName="Loot Boxes"
     />
     <HomeInfoCarouselPage
-        carouselHeading="Time-Limited Sales"
-        carouselText="Offers that are only available for a short period, creating a sense of urgency. This tactic pressures players into making impulsive purchases to avoid missing out on discounts or exclusive items."
-        carouselImage="https://placehold.co/400x300"
-        carouselLink="index.html"
-        carouselDataName="Time-Limited Sales"
+      carouselHeading="Time-Limited Sales"
+      carouselText="Offers that are only available for a short period, creating a sense of urgency. This tactic pressures players into making impulsive purchases to avoid missing out on discounts or exclusive items."
+      carouselImage="https://placehold.co/400x300"
+      carouselLink="index.html"
+      carouselDataName="Time-Limited Sales"
     />
     <HomeInfoCarouselPage
-        carouselHeading="Pay-to-Win Mechanics"
-        carouselText="Game features that allow players to purchase advantages or powerful items with real money. This creates an uneven playing field and can diminish the enjoyment of the game for those who choose not to spend extra money."
-        carouselImage="https://placehold.co/400x300"
-        carouselLink="index.html"
-        carouselDataName="Pay-to-Win Mechanics"
+      carouselHeading="Pay-to-Win Mechanics"
+      carouselText="Game features that allow players to purchase advantages or powerful items with real money. This creates an uneven playing field and can diminish the enjoyment of the game for those who choose not to spend extra money."
+      carouselImage="https://placehold.co/400x300"
+      carouselLink="index.html"
+      carouselDataName="Pay-to-Win Mechanics"
     />
-</ul>
+  </ul>
+</div>
 
 <style>
-    ul {
-        anchor-name: --my-carousel;
-        scroll-marker-group: after;
-    }
-    ul::scroll-button(*) {
-        border: 0;
-        font-size: 9rem;
-        background: none;
-        color: var(--color-secondaryBrand);
-        opacity: 1;
-        cursor: pointer;
-        position: absolute;
-        position-anchor: --my-carousel;
-        font-family: var(--font-accent);
-    }
+  ul::-webkit-scrollbar {
+    display: none; /* Remove scrollbar for Safari and legacy Chromium */
+  }
 
-    ul::scroll-button(*):hover,
-    ul::scroll-button(*):focus {
-        opacity: 1;
-    }
+  .carousel-navdots button {
+    -moz-appearance: none;
+    -webkit-apperance: none;
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    /* style as a grey dot */
+    border: 3px solid var(--color-triggerBrand);
+    border-radius: 15%;
+    height: 2rem;
+    padding: 0;
+    width: 2rem;
+    opacity:;
+  }
+  .carousel-navdots button:focus-visible {
+    outline: 2px solid #0060a8; /* blue */
+    outline-offset: 2px;
+  }
 
-    ul::scroll-button(*):active {
-        translate: 0.1rem 0.1rem;
-    }
-
-    ul::scroll-button(*):disabled {
-        opacity: 0.5;
-        cursor: unset;
-    }
-
-    ul::scroll-marker-group {
-        position: absolute;
-        position-anchor: --my-carousel;
-        top: calc(anchor(bottom) - 12.8rem);
-        justify-self: anchor-center;
-
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    /* width */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-
-    @media screen and (min-width: 1024px) {
-        ul::scroll-button(left) {
-            content: "<" / "Previous";
-            bottom: calc(anchor(top) - 23rem);
-            left: calc(anchor(left) - 10rem);
-        }
-
-        ul::scroll-button(right) {
-            content: ">" / "Next";
-            bottom: calc(anchor(top) - 23rem);
-            left: calc(anchor(right) + 1.8rem);
-        }
-    }
-    @media screen and (max-width: 1024px){
-        ul::scroll-marker-group {
-        top: calc(anchor(bottom) - 5.5rem);
-    }
-    }
-    
+  .carousel-navdots button.is-active {
+    background-color: var(--color-triggerBrand);
+  }
+  .carousel-button {
+    cursor: pointer;
+  }
+  .carousel-button.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 </style>
+
+<script>
+  const wrapper = document.getElementById("carousel-wrapper");
+  const slides = document.querySelectorAll(".carousel-slide");
+  const dots = document.querySelectorAll(".carousel-navdots button");
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+
+  let currentSlideIndex = 0;
+
+  // Callback function when a slide changes
+  function updateUI(activeIndex: number) {
+    currentSlideIndex = activeIndex;
+
+    // Update carousel dots
+    dots.forEach((dot, index) => {
+      if (index === activeIndex) {
+        dot.classList.add("is-active");
+        dot.setAttribute("aria-disabled", "true");
+      } else {
+        dot.classList.remove("is-active");
+        dot.setAttribute("aria-disabled", "false");
+      }
+    });
+
+    // Update Buttons (Optional: Disable if at boundaries)
+    if (activeIndex === 0) {
+      prevBtn?.classList.add("is-disabled");
+    } else {
+      prevBtn?.classList.remove("is-disabled");
+    }
+
+    if (activeIndex === slides.length - 1) {
+      nextBtn?.classList.add("is-disabled");
+    } else {
+      nextBtn?.classList.remove("is-disabled");
+    }
+  }
+
+  // Intersection observer *LEARN HOW THE FUCK THIS WORKS*
+  const observerOptions = {
+    root: wrapper,
+    threshold: 0.6, // Trigger when a slide occupies 60% of the visible container
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Find the index of the slide that just became visible
+        const index = Array.from(slides).indexOf(entry.target);
+        updateUI(index);
+      }
+    });
+  }, observerOptions);
+
+  // Monitor every slide
+  slides.forEach((slide) => observer.observe(slide));
+
+  // Handle Navigation Interactivity (Scroll-into-view)
+  function scrollToSlide(index: number) {
+    if (index < 0 || index >= slides.length) return;
+
+    slides[index]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center", // Align to the center snap point
+    });
+  }
+
+  // Next/Prev Clicks
+  prevBtn?.addEventListener("click", () =>
+    scrollToSlide(currentSlideIndex - 1),
+  );
+  nextBtn?.addEventListener("click", () =>
+    scrollToSlide(currentSlideIndex + 1),
+  );
+
+  // Dot Clicks
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => scrollToSlide(index));
+  });
+</script>

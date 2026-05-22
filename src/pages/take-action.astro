@@ -23,21 +23,29 @@ import "../styles/global.css";
                 id="quickLinkContainer"
             >
                 <div
-                    class="order-1 -mt-50 py-40 pl-20 xl:order-0 xl:mt-30 xl:pl-40"
+                    class="order-1 -mt-50 py-40 text-center xl:text-left xl:order-0 xl:mt-30 xl:pl-40"
                 >
                     <h2
                         class="text-[3rem]/[4rem] font-extrabold text-mainBrand uppercase"
                     >
                         Quick Links
                     </h2>
-                    <ul class="pl-20 text-[2.2rem] font-bold">
+                    <ul class="text-[2.2rem] font-bold">
                         <li class="mb-15 mt-15">
-                            <a class="hover:underline focus:underline" href="#">Common Deceptive Patterns</a>
+                            <a class="hover:underline focus:underline" href="#"
+                                >Common Deceptive Patterns</a
+                            >
                         </li>
                         <li class="mb-15 marker:text-[--linkColor]">
-                            <a class="hover:underline focus:underline" href="#">Real Life Harm</a>
+                            <a class="hover:underline focus:underline" href="#"
+                                >Real Life Harm</a
+                            >
                         </li>
-                        <li class="mb-15"><a class="hover:underline focus:underline" href="#">Share your Story</a></li>
+                        <li class="mb-15">
+                            <a class="hover:underline focus:underline" href="#"
+                                >Share your Story</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <img
@@ -105,37 +113,58 @@ import "../styles/global.css";
         <div
             class="bg-mainBrand bg-[url(/assets/game-background-texture-bottom.svg)] bg-size-100% bg-no-repeat bg-top pt-70 lg:py-100 lg:bg-position-[0_-25rem]"
             id="harmModule"
-        ><div class="text-center lg:text-left lg:max-w-1080 lg:mx-auto">
-            <h2
-                class="uppercase font-extrabold text-[4rem]/[4.5rem] text-secondaryBrand pb-20 lg:text-[6.5rem]/[7rem]"
-            >
-                Real Life Harm
-            </h2>
-            <p
-                class="text-[2rem]/[3.2rem] px-30 text-secondaryBrand lg:text-[2.5rem]/[4.5rem] lg:px-0"
-            >
-                These two families lost thousands of dollars because their kids
-                impulsively spent money on microtransactions. Spending limits
-                could have prevented this.
-            </p>
-        </div>
+        >
+            <div class="text-center lg:text-left lg:max-w-1080 lg:mx-auto">
+                <h2
+                    class="uppercase font-extrabold text-[4rem]/[4.5rem] text-secondaryBrand pb-20 lg:text-[6.5rem]/[7rem]"
+                >
+                    Real Life Harm
+                </h2>
+                <p
+                    class="text-[2rem]/[3.2rem] px-30 text-secondaryBrand lg:text-[2.5rem]/[4.5rem] lg:px-0"
+                >
+                    These two families lost thousands of dollars because their
+                    kids impulsively spent money on microtransactions. Spending
+                    limits could have prevented this.
+                </p>
+            </div>
             <ul class="lg:max-w-1110 lg:mx-auto">
-                <div class="my-30 text-secondaryBrand">
-                    <MainInfoCarousel
-                        carouselHeading="Case Study 1"
-                        carouselText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi."
-                        carouselImage="https://placehold.co/350x330"
-                    />
-                    <MainInfoCarousel
-                        carouselHeading="Case Study 2"
-                        carouselText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi."
-                        carouselImage="https://placehold.co/350x330"
-                    />
+                <div class="my-30 max-w-[85%] mx-auto text-secondaryBrand">
+                    <li
+                        class="px-20 py-35 flex grow-0 shrink-0 basis-full snap-center lg:flex-nowrap lg:basis-auto lg:shrink lg:grow lg:py-0"
+                        data-accName="case-study-1"
+                    >
+                        <div
+                            class="flex flex-col lg:flex-row lg:flex-nowrap lg:items-start"
+                        >
+                            <div class="mb-10 order-1 lg:mb-0">
+                                <h3 class="text-bodyHead font-bold mb-15">
+                                    Case Study 1
+                                </h3>
+                                <p class="text-bodyText">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris. Sed ut
+                                    perspiciatis unde omnis iste natus error sit
+                                    voluptatem accusantium doloremque
+                                    laudantium, totam rem aperiam, eaque ipsa
+                                    quae ab illo inventore veritatis et quasi.
+                                </p>
+                            </div>
+
+                            <img
+                                class="mb-15 object-contain order-0 max-w-full"
+                                src="https://placehold.co/350x330"
+                            />
+                        </div>
+                    </li>
                 </div>
             </ul>
 
             <div
-                class="bg-secondaryBrand max-w-[85%] m-auto px-20 py-40 rounded-2xl text-center lg:max-w-1080 lg:my-50" 
+                class="bg-secondaryBrand max-w-[85%] m-auto px-20 py-40 rounded-2xl text-center lg:max-w-1080 lg:my-50"
                 id="shareContainer"
             >
                 <h2
@@ -143,7 +172,9 @@ import "../styles/global.css";
                 >
                     Share your story with us
                 </h2>
-                <p class="text-[2rem]/[3.5rem] mb-30 lg:max-w-750 lg:mx-auto lg:mb-40">
+                <p
+                    class="text-[2rem]/[3.5rem] mb-30 lg:max-w-750 lg:mx-auto lg:mb-40"
+                >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud.

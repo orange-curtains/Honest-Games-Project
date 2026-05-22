@@ -104,6 +104,16 @@
 
 }
 
+@layer components {
+    .hover-scale {
+        transition: transform 0.25s ease;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.025);
+    }
+}
+
 @layer base {
 
     /* * {
