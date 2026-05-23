@@ -112,6 +112,16 @@
     .hover-scale:hover {
         transform: scale(1.025);
     }
+
+    .cta-button {
+        @apply w-[80%] h-75 text-[3.5rem] font-extrabold bg-triggerBrand text-secondaryBrand rounded-2xl m-auto lg:max-w-400 transition-transform duration-250;
+    }
+
+    .cta-button:hover, .cta-button:focus {
+        @apply transform scale-105;
+    }
+
+
 }
 
 @layer base {
@@ -195,7 +205,7 @@ header nav ul li {
     header li a:hover,
     header li a:focus,
     footer li a:hover,
-    footer li a:focus, {
+    footer li a:focus {
         text-decoration-color: var(--mainBrandColor);
         text-decoration-thickness: 0.5rem;
     }
