@@ -1,0 +1,82 @@
+---
+const { citationNumber, citationText, citationLink } = Astro.props;
+---
+
+<!--  Styling for small-popup
+lg:p-15 lg:absolute lg:w-650 lg:bottom-[115%] lg:h-fit
+lg:left-1/2 lg:-translate-x-1/2 lg:text-[1.6rem]/[2.0rem] -->
+<span class="relative inline-block">
+    <a
+        id={`citationSuperText-${citationNumber}`}
+        class="text-secondaryBrand underline -underline-offset-5 after:content-[''] after:absolute after:p-30 after:-m-30 hover:text-triggerBrand"
+        ><sup>{citationNumber}</sup></a
+    >
+    <span
+        class="citationPopupContainers hidden"
+        id={`citationPopupContainer-${citationNumber}`}
+    >
+        <span
+            class="citationPopupBackdrops fixed h-screen w-screen top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.3)] backdrop-blur-sm z-2"
+        >
+        </span>
+
+        <span
+            class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] text-[1.2rem]/[1.6rem] text-copy bg-secondaryBrand px-40 py-20 z-3 rounded-2xl shadow-highlight lg:px-50 lg:py-40 lg:w-[50%] lg:text-[1.6rem]/[2.0rem]"
+        >
+            <span
+                class="citationPopupCloseBtns absolute top-5 right-5 z-5 cursor-pointer hover:scale-110 transition-transform after:content-[''] after:absolute after:p-30 after:-m-30"
+            >
+                <svg
+                    width="35px"
+                    height="35px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+                        fill="#0F1729"></path>
+                </svg>
+            </span>
+            <span class="text-bodyCopy mb-10 w-full block">Reference</span>
+            {citationText}<a href={citationLink} class="underline">
+                {citationLink.replace("https://", "").replace("www.", "")}<svg
+                    class="inline-block ml-1"
+                    width="20px"
+                    height="20px"
+                    viewBox="0 0 24 24"
+                    style="cursor:pointer"
+                    ><g
+                        stroke-width="2.1"
+                        stroke="#fffafa"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"
+                        ></polyline><path
+                            d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"
+                        ></path></g
+                    ></svg
+                ></a
+            >
+        </span>
+    </span>
+</span>
+
+<style>
+    /* .citationPopupContainers {
+        animation: show 200ms ease-in-out forwards;
+        opacity: 0;
+    }
+    
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    } */
+</style>
