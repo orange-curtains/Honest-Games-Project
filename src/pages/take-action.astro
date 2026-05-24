@@ -2,7 +2,7 @@
 import MainLayout from "../layouts/mainLayout.astro";
 import MainHeroWhiteBG from "../components/mainHeroWhiteBG.astro";
 import Main3UpBox from "../components/main3UpBox.astro";
-import MainInfoCarousel from "../components/mainInfoCarousel.astro";
+import MainSuperTextCitation from "../components/mainSuperTextCitation.astro";
 
 import "../styles/global.css";
 ---
@@ -156,63 +156,32 @@ import "../styles/global.css";
                             >
                                 <div class="lg:w-2/3 lg:min-h-300">
                                     <h3 class="text-bodyHead font-bold mb-20">
-                                        How loot boxes stole a teen's savings
+                                        Find out how a young teen lost his
+                                        college savings to loot boxes, and why
+                                        it was designed to happen
                                     </h3>
 
-                                    <p id="citation-1-reference">
+                                    <p>
                                         When Johnathon opened his first FIFA
                                         pack at the age of 12, he didn't know he
                                         was gambling. FIFA pack's, also known as
                                         loot boxes, offer a small chance to play
                                         his favorite players in-game for real
-                                        world money.<span
-                                            class="relative inline-block"
-                                        >
-                                            <a
-                                                class="text-secondaryBrand underline -underline-offset-5 after:content-[''] after:absolute after:p-30 after:-m-30 hover:text-triggerBrand"
-                                                href=""><sup>1</sup></a
-                                            >
-                                            <span
-                                                id="citation-1-absolute"
-                                                class="absolute min-h-fit left-1/2 -translate-x-1/2 w-[60vw] bottom-[115%] text-[1.2rem]/[1.6rem] text-copy bg-secondaryBrand px-40 py-20 z-3 lg:p-15 lg:absolute lg:w-650 lg:bottom-[115%] lg:h-fit lg:left-1/2 lg:-translate-x-1/2 lg:text-[1.6rem]/[2.0rem] rounded-2xlshadow-highlight"
-                                            >
-                                                Spicer, S. G., Fullwood, C.,
-                                                Close, J., Nicklin, L. L.,
-                                                Lloyd, J., & Lloyd, H. (2022).
-                                                Loot boxes and problem gambling:
-                                                Investigating the "Gateway
-                                                hypothesis." Addictive
-                                                Behaviors, 131, 107327. <a
-                                                    href="https://doi.org/10.1016/j.addbeh.2022.107327"
-                                                    class="underline"
-                                                    >doi.org/10.1016/j.addbeh.2022.107327<svg
-                                                        class="inline-block ml-1"
-                                                        width="20px"
-                                                        height="20px"
-                                                        viewBox="0 0 24 24"
-                                                        style="cursor:pointer"
-                                                        ><g
-                                                            stroke-width="2.1"
-                                                            stroke="#fffafa"
-                                                            fill="none"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            ><polyline
-                                                                points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"
-                                                            ></polyline><path
-                                                                d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"
-                                                            ></path></g
-                                                        ></svg
-                                                    ></a
-                                                >
-                                            </span>
-                                        </span> By purchasing them, he was simulating
-                                        the highs and lows of real world gambling.
-                                        The mechanics of loot boxes are psychological
+                                        world money.<MainSuperTextCitation
+                                            citationNumber="1"
+                                            citationLink="https://doi.org/10.1016/j.addbeh.2022.107327"
+                                            citationText="Spicer, S. G., Fullwood, C., Close, J., Nicklin, L. L., Lloyd, J., & Lloyd, H. (2022). Loot boxes and problem gambling: Investigating the 'Gateway hypothesis.' Addictive Behaviors, 131, 107327."
+                                        /> By purchasing them, he was simulating the
+                                        highs and lows of real world gambling. The
+                                        mechanics of loot boxes are psychological
                                         similar to gambling, and can led vulnerable
                                         players like Johnathon to problem spending--
                                         "...I was addicted to the buzz of chance when
-                                        I bought packs."
+                                        I bought packs."<MainSuperTextCitation
+                                            citationNumber="2"
+                                            citationLink="https://www.ftc.gov/system/files/documents/reports/staff-perspective-paper-loot-box-workshop/loot_box_workshop_staff_perspective.pdf  "
+                                            citationText="FTC Staff Perspective. (2020). FTC Video Game Loot Box Workshop. In FTC.gov. FTC."
+                                        />
                                     </p>
                                 </div>
 
@@ -241,9 +210,19 @@ import "../styles/global.css";
                                     <li>
                                         Get loot boxes labeled for R-18 only
                                     </li>
-                                    <li>Add daily spending limit caps</li>
                                     <li>
-                                        Enable easily accessible spending logs
+                                        Add daily spending limit caps <MainSuperTextCitation
+                                            citationNumber="3"
+                                            citationLink="https://doi.org/10.1007/s11469-018-0009-3"
+                                            citationText="King, D. L., & Delfabbro, P. H. (2018). Video game monetization (e.g., ‘loot boxes’): A blueprint for practical social responsibility measures. International Journal of Mental Health and Addiction, 17(1), 166–179."
+                                        />
+                                    </li>
+                                    <li>
+                                        Enable easily accessible spending logs <MainSuperTextCitation
+                                        citationNumber="3"
+                                        citationLink="https://doi.org/10.1007/s11469-018-0009-3"
+                                        citationText="King, D. L., & Delfabbro, P. H. (2018). Video game monetization (e.g., ‘loot boxes’): A blueprint for practical social responsibility measures. International Journal of Mental Health and Addiction, 17(1), 166–179."
+                                    />
                                     </li>
                                 </ul>
                                 <p class="mb-30">
@@ -287,8 +266,9 @@ import "../styles/global.css";
                             >
                                 <div class="lg:w-2/3 lg:min-h-300">
                                     <h3 class="text-bodyHead font-bold mb-15">
-                                        A 10-year-old daughter fell victim to
-                                        aggressive monetization
+                                        Learn about how a 10-year-old daughter
+                                        can spend over £2,500 on in-app
+                                        purchases and why it's not her fault
                                     </h3>
 
                                     <p class="">
@@ -332,7 +312,11 @@ import "../styles/global.css";
                                 <ul class="list-disc list-inside mb-20">
                                     <li>
                                         Default spending limit caps on all kids
-                                        games
+                                        games <MainSuperTextCitation
+                                        citationNumber="3"
+                                        citationLink="https://doi.org/10.1007/s11469-018-0009-3"
+                                        citationText="King, D. L., & Delfabbro, P. H. (2018). Video game monetization (e.g., ‘loot boxes’): A blueprint for practical social responsibility measures. International Journal of Mental Health and Addiction, 17(1), 166–179."
+                                    />
                                     </li>
                                     <li>
                                         Free and public education on online
@@ -516,7 +500,7 @@ import "../styles/global.css";
     </main>
 </MainLayout>
 
-<style>
+<!-- <style>
     :root {
         --arrow-h: 0.5em;
         --arrow-w: 0.5em;
@@ -535,6 +519,46 @@ import "../styles/global.css";
         border-width: var(--arrow-h) var(--arrow-w);
         border-color: var(--bubble-color) transparent transparent;
     }
-</style>
+</style> -->
 
-<script></script>
+<script>
+    const citationPopupContainers = document.getElementsByClassName(
+        "citationPopupContainers",
+    );
+    const citationPopupCloseBtns = document.getElementsByClassName(
+        "citationPopupCloseBtns",
+    );
+    const citationPopupBackdrops = document.getElementsByClassName(
+        "citationPopupBackdrops",
+    );
+
+    for (let i = 0; i < citationPopupContainers.length; i++) {
+        console.log(document.getElementById(`citationPopupContainer-${i + 1}`));
+
+        document
+            .getElementById(`citationSuperText-${i + 1}`)
+            ?.addEventListener("click", () => {
+                (
+                    document.getElementById(
+                        `citationPopupContainer-${i + 1}`,
+                    ) as HTMLElement
+                ).style.display = "block";
+            });
+
+        citationPopupCloseBtns[i]?.addEventListener("click", () => {
+            (
+                document.getElementById(
+                    `citationPopupContainer-${i + 1}`,
+                ) as HTMLElement
+            ).style.display = "none";
+        });
+
+        citationPopupBackdrops[i]?.addEventListener("click", () => {
+            (
+                document.getElementById(
+                    `citationPopupContainer-${i + 1}`,
+                ) as HTMLElement
+            ).style.display = "none";
+        });
+    }
+</script>
