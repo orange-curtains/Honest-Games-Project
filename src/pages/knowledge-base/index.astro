@@ -5,11 +5,11 @@ import DpGridBox from "../../components/dpGridBox.astro";
 import "../../styles/global.css";
 
 const allDesigns = Object.values(
-    import.meta.glob("./**/*.md", { eager: true }),
+    import.meta.glob("./**/*.{md,mdx}", { eager: true }),
 );
 const totalDesigns = allDesigns.length;
 const totalDesignCategories = [
-    ...new Set(allDesigns.map((design) => design.frontmatter.category)),
+    ...new Set(allDesigns.map((design: any) => design.frontmatter.category)),
 ];
 ---
 
@@ -26,9 +26,8 @@ const totalDesignCategories = [
             <p
                 class="text-bodyCopy text-secondaryBrand lg:max-w-1080 lg:mx-auto lg:text-lgBodyCopy"
             >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud.
+                Explore our database of documented deceptive patterns in video
+                games. Learn how to spot them in the wild and how they work.
             </p>
         </div>
         <div class="bg-secondaryBrand">

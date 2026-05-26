@@ -11,28 +11,32 @@ const { frontmatter } = Astro.props;
     metaTitle={frontmatter.title}
     metaDescription={frontmatter.description}
 >
+    <!-- Breadcrumb -->
     <div class="max-w-[85%] mx-auto xl:max-w-1200">
         <hr class="border-mainBrand border-3 xl:mt-50" />
         <div class="mt-50 mb-50 xl:mt-60 xl:mb-75">
             <p class="text-[2.4rem]/[3.4rem]">
-                <a href="/knowledge-base">Knowledge Base</a> / {frontmatter.category.toUpperCase().charAt(0) + frontmatter.category.slice(1)} / {
-                    frontmatter.title
-                }
+                <a href="/knowledge-base">Knowledge Base</a> / {
+                    frontmatter.category.toUpperCase().charAt(0) +
+                        frontmatter.category.slice(1)
+                } / {frontmatter.title}
             </p>
         </div>
     </div>
     <main class="mb-100">
         <div class="max-w-[85%] mx-auto xl:max-w-1200">
+            <!-- Intro -->
             <div class="mb-20 xl:mb-50">
                 <h1 class="text-heroHead mb-20">{frontmatter.title}</h1>
                 <p class="text-bodySubHead">{frontmatter.description}</p>
             </div>
+            <!-- Defined Section -->
             <div class="xl:flex xl:flex-row xl:gap-50">
                 <div class="mb-20 xl:mb-50">
                     <h2 class="text-heroSubHead mb-20 xl:pt-50">Defined</h2>
-                    <p class="text-bodyCopy">{frontmatter.defined}</p>
+                    <slot name="defined-body" />
                 </div>
-                <!-- Will display if there is at least one example -->
+                <!-- Found In Section - Will display if there is at least one example -->
                 {
                     frontmatter.exampleName1 && (
                         <div class="mb-20 bg-mainBrand rounded-2xl text-secondaryBrand flex flex-col p-20 shadow-highlight xl:mb-50 xl:max-w-[40%] xl:py-50">
@@ -96,26 +100,15 @@ const { frontmatter } = Astro.props;
                     )
                 }
             </div>
+            <!-- Application Section -->
             <div class="mb-30 xl:mb-50">
                 <h2 class="text-heroSubHead mb-20">Application</h2>
-                <p class="text-bodyCopy">{frontmatter.application}</p>
-                <!-- If application image exists -->
-                {frontmatter.applicationImg && (
-                    <figure>
-                    <img
-                        class="mt-20 shadow-highlight rounded-2xl w-full"
-                        src={frontmatter.applicationImg}
-                        alt=""
-                    />
-                    <figcaption class="text-center text-[1.8rem] lg:text-[2rem] mt-10">
-                        {frontmatter.applicationImgCaption}
-                    </figcaption>
-                    </figure>
-                )}
+                <slot name="application-body" />
             </div>
+            <!-- References Section -->
             <section class="mb-30 xl:mb-50">
                 <h2 class="text-heroSubHead mb-20">References</h2>
-                <p class="text-bodyCopy">{frontmatter.references}</p>
+                <slot name="references-body" />
             </section>
         </div>
         <section class="mb-30 xl:mb-50 max-w-[85%] mx-auto xl:max-w-1600">
