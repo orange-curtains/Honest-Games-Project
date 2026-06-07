@@ -494,7 +494,7 @@ import "../styles/global.css";
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud.
             </p>
-            <button class="cta-button">Button</button>
+            <button class="cta-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdxbY55mhkKnjuR1aRKFiguY-w92I0JrE4J5dP6ewRMVlijoQ/viewform?usp=header">Share via Google Forms</button>
         </div>
     </main>
 </MainLayout>
@@ -521,43 +521,45 @@ import "../styles/global.css";
 </style> -->
 
 <script>
-    const citationPopupContainers = document.getElementsByClassName(
-        "citationPopupContainers",
-    );
-    const citationPopupCloseBtns = document.getElementsByClassName(
-        "citationPopupCloseBtns",
-    );
-    const citationPopupBackdrops = document.getElementsByClassName(
-        "citationPopupBackdrops",
+    const citationPopupContainers = document.querySelectorAll<HTMLElement>(
+        ".citationPopupContainers",
     );
 
-    for (let i = 0; i < citationPopupContainers.length; i++) {
-        console.log(document.getElementById(`citationPopupContainer-${i + 1}`));
+    // Build a map of citation number -> popup container (first occurrence only)
+    const popupMap = new Map<string, HTMLElement>();
+    citationPopupContainers.forEach((container) => {
+        const num = container.id.replace("citationPopupContainer-", "");
+        if (!popupMap.has(num)) {
+            popupMap.set(num, container);
+        }
+    });
 
-        document
-            .getElementById(`citationSuperText-${i + 1}`)
+    // Wire up each unique citation
+    popupMap.forEach((container, citationNumber) => {
+        // Find ALL trigger links for this citation number
+        const triggers = document.querySelectorAll<HTMLElement>(
+            `[data-citation="${citationNumber}"]`,
+        );
+
+        triggers.forEach((trigger) => {
+            trigger.addEventListener("click", (e) => {
+                e.preventDefault();
+                container.style.display = "block";
+            });
+        });
+
+        // Close button inside this container
+        container
+            .querySelector(".citationPopupCloseBtns")
             ?.addEventListener("click", () => {
-                (
-                    document.getElementById(
-                        `citationPopupContainer-${i + 1}`,
-                    ) as HTMLElement
-                ).style.display = "block";
+                container.style.display = "none";
             });
 
-        citationPopupCloseBtns[i]?.addEventListener("click", () => {
-            (
-                document.getElementById(
-                    `citationPopupContainer-${i + 1}`,
-                ) as HTMLElement
-            ).style.display = "none";
-        });
-
-        citationPopupBackdrops[i]?.addEventListener("click", () => {
-            (
-                document.getElementById(
-                    `citationPopupContainer-${i + 1}`,
-                ) as HTMLElement
-            ).style.display = "none";
-        });
-    }
+        // Backdrop inside this container
+        container
+            .querySelector(".citationPopupBackdrops")
+            ?.addEventListener("click", () => {
+                container.style.display = "none";
+            });
+    });
 </script>

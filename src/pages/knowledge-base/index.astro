@@ -176,7 +176,9 @@ const totalDesignCategories = [
 
     // Updates display count by counting number of boxes that are no hidden. Called after filter changes
     function updateResultsCount() {
-        const visibleBoxes = Array.from(dpGridBoxes).filter((box) => !box.classList.contains("hidden"));
+        const visibleBoxes = Array.from(dpGridBoxes).filter(
+            (box) => !box.classList.contains("hidden"),
+        );
         resultsCountElement!.textContent = ` Displaying ${visibleBoxes.length} results`;
     }
 </script>

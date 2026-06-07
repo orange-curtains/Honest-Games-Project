@@ -39,7 +39,7 @@
     --text-bodySubHead--line-height: 3.2rem;
     --text-bodyCopy: 2rem;
     --text-bodyCopy--line-height: 3.2rem;
-    --text-button: 3.5rem;
+    --text-button: 3rem;
     --text-button--line-height: 4rem;
     --text-button--font-weight: 800;
 
@@ -114,7 +114,7 @@
     }
 
     .cta-button {
-        @apply w-[80%] h-75 text-[3.5rem] font-extrabold bg-triggerBrand text-secondaryBrand rounded-2xl m-auto lg:max-w-400 transition-transform duration-250;
+        @apply w-[80%] min-h-75 text-[2.5rem] font-extrabold bg-triggerBrand text-secondaryBrand rounded-2xl m-auto p-10 lg:max-w-400 xl:text-button shadow-highlight transition-transform duration-250;
     }
 
     .cta-button:hover, .cta-button:focus {
