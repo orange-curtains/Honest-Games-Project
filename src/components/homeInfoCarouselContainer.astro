@@ -1,5 +1,8 @@
 ---
 import HomeInfoCarouselPage from "../components/homeInfoCarouselPage.astro";
+import timeLimited from "../assets/media/timed-sales.jpg";
+import lootBoxes from "../assets/media/loot-boxes.jpg";
+import preemEddies from "../assets/media/preem-eddies.jpg";
 ---
 
 <div
@@ -42,23 +45,23 @@ import HomeInfoCarouselPage from "../components/homeInfoCarouselPage.astro";
     <HomeInfoCarouselPage
       carouselHeading="Loot Boxes"
       carouselText="Virtual boxes that can be bought with real money or earned through gameplay, containing random in-game items. They are designed to encourage repeated purchases and can lead to gambling-like behavior."
-      carouselImage="https://placehold.co/400x300"
+      carouselImage={lootBoxes.src}
       carouselLink="index.html"
       carouselDataName="Loot Boxes"
     />
     <HomeInfoCarouselPage
       carouselHeading="Time-Limited Sales"
       carouselText="Offers that are only available for a short period, creating a sense of urgency. This tactic pressures players into making impulsive purchases to avoid missing out on discounts or exclusive items."
-      carouselImage="https://placehold.co/400x300"
+      carouselImage={timeLimited.src}
       carouselLink="index.html"
       carouselDataName="Time-Limited Sales"
     />
     <HomeInfoCarouselPage
-      carouselHeading="Pay-to-Win Mechanics"
-      carouselText="Game features that allow players to purchase advantages or powerful items with real money. This creates an uneven playing field and can diminish the enjoyment of the game for those who choose not to spend extra money."
-      carouselImage="https://placehold.co/400x300"
+      carouselHeading="Virtual Currencies and Currency Confusion"
+      carouselText="Learn why every game uses points/gems/rocks instead of listing the real price of their microtransactions. Hint: It's confusing on purpose."
+      carouselImage={preemEddies.src}
       carouselLink="index.html"
-      carouselDataName="Pay-to-Win Mechanics"
+      carouselDataName="Virtual Currencies"
     />
   </ul>
 </div>

@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layouts/mainLayout.astro";
+import MainHeroWhiteBG from "../components/mainHeroWhiteBG.astro";
+
+import heartIcon from "../assets/icons/HG-heart-icon.png";
+
+import "../styles/global.css";
+---
+<MainLayout metaTitle="Under Construction" metaDescription="This page is currently under construction. Please check back later.">
+    <main class="mb-100">
+        <MainHeroWhiteBG
+            mainHeroHeading="Under Construction"
+            mainHeroSubheading=""
+            mainHeroText="This page is currently a work-in-progress. Please check back later."
+        />
+        <div class="flex justify-center flex-col items-center gap-25">
+           
+            <a href="/" class="cursor-pointer">
+                <button class="cta-button cursor-pointer w-300">
+                    Take Me Home
+                </button>
+            </a>
+            <img src={heartIcon.src} alt="A red pixel-art heart." class="w-100" />
+            
+        </div>
+    </main>
+</MainLayout>

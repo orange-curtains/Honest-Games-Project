@@ -117,3 +117,47 @@ const { frontmatter } = Astro.props;
         </section>
     </main>
 </MainLayout>
+
+<script>
+    const citationPopupContainers = document.querySelectorAll<HTMLElement>(
+        ".citationPopupContainers",
+    );
+
+    // Build a map of citation number -> popup container (first occurrence only)
+    const popupMap = new Map<string, HTMLElement>();
+    citationPopupContainers.forEach((container) => {
+        const num = container.id.replace("citationPopupContainer-", "");
+        if (!popupMap.has(num)) {
+            popupMap.set(num, container);
+        }
+    });
+
+    // Wire up each unique citation
+    popupMap.forEach((container, citationNumber) => {
+        // Find ALL trigger links for this citation number
+        const triggers = document.querySelectorAll<HTMLElement>(
+            `[data-citation="${citationNumber}"]`,
+        );
+
+        triggers.forEach((trigger) => {
+            trigger.addEventListener("click", (e) => {
+                e.preventDefault();
+                container.style.display = "block";
+            });
+        });
+
+        // Close button inside this container
+        container
+            .querySelector(".citationPopupCloseBtns")
+            ?.addEventListener("click", () => {
+                container.style.display = "none";
+            });
+
+        // Backdrop inside this container
+        container
+            .querySelector(".citationPopupBackdrops")
+            ?.addEventListener("click", () => {
+                container.style.display = "none";
+            });
+    });
+</script>
