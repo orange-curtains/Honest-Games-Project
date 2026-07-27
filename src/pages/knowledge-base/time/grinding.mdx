@@ -1,10 +1,10 @@
 ---
 layout: ../../../layouts/deceptivePatternLayout.astro
 title: 'Grinding'
-description: 'Grinding has become a ubiquitous term in gaming, representing the length of time it takes to accomplish a task in a video game. Learn the difference between grinding as an intended game design and grinding as manipulative, meant to drive sales.'
+description: 'Grinding is a universal term in gaming, representing the length of time it takes to accomplish a task or progress. Learn the difference between grinding as an intended game design and grinding as manipulation, meant to drive sales.'
 author: 'Alex'
-date: '2025-5-25'
-lastUpdated:
+date: '2026-5-25'
+lastUpdated: '2026-7-26'
 category: 'time'
 tags: ["time", "grinding"]
 
@@ -25,6 +25,12 @@ relatedDpDescription3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 relatedDpLink3: '/'
 ---
 import MainSuperTextCitation from "../../../components/mainSuperTextCitation.astro";
+import DpImage from "../../../components/dpImage.astro";
+import starwarsGrindingChar from "../../../assets/media/dp-articles/grinding-starwars-character.jpg";
+import starwarsGrindingHomescreen from "../../../assets/media/dp-articles/grinding-starwars-homescreen.jpg";
+import genshinPullBanner from "../../../assets/media/dp-articles/grinding-genshin-pullbanner-nocurrency.png";
+import genshinPullMath from "../../../assets/media/dp-articles/grinding-genshin-pull.jpg";
+
 
 Grinding is a universal term in gaming, representing the length of time it takes to accomplish a task or progress. Not all games that have grinding are deceptive; learn the difference between grinding as an intended game design and grinding as manipulation, meant to drive sales.
 
@@ -42,19 +48,28 @@ Grinding is the act of completing low-variety tasks to progress or unlock new co
 Grinding is often used in combination with other deceptive patterns such as pay-to-win, playing by appointment, and infinite treadmill. 
 
 ### Grinding in Star Wars Battlefront II
+
+<DpImage 
+    src={starwarsGrindingChar} 
+    alt="Star Wars Battlefront II character selection screen." 
+    caption="via Star Wars Battlefront II on 25 July 2026"
+/>
 One of the most famous cases of grinding involves the launch of DICE's *Star Wars Battlefront II*, a highly anticipated multiplayer game in 2017.  To unlock iconic and powerful characters such as Luke Skywalker, players had to either spend money on loot boxes or spend "an average of 2,395.97 minutes of pure gameplay time—roughly forty hours of grinding—to unlock [him]". <MainSuperTextCitation
                                             citationNumber="2"
                                             citationLink="https://scholar.law.colorado.edu/lawreview/vol92/iss1/6/"
                                             citationText="Goodstein, S. (2021). When the cat’s away: Techlash, loot boxes, and regulating “dark patterns” in the video game industry’s monetization strategies. University of Colorado Law Review, 92(1), 285."
                                         /> Because Star Wars Battlefront II is a PvP multiplayer, players are encouraged to spend money to unlock powerful characters faster to gain an edge over other players. This design represents a combination of deceptive patterns: grinding, monetized rivalries, and pay-to-win. After 2018, the developers removed all pay-to-win components and all microtransactions. Now players can enjoy immersing themselves in the frontlines of the Star Wars universe without fearing unfair PvP experiences.
 
-(Screenshot)
-via gameuidatabase.com
+
 
 ### Grinding in Genshin Impact
 Gacha games, a genre of mobile games focusing on collecting resources (typically characters), heavily features grinding with the option to pay to progress faster. Genshin Impact, one of the top mobile games worldwide, contains grinding through their loot boxes- known in-game as character/item banners. 
 
-(screenshot)
+<DpImage 
+    src={genshinPullBanner} 
+    alt="Genshin Impact character banner." 
+    caption="Image via Genshin Impact (2026 July 26)"
+/>
 
 These banners are one of the main methods of progressing power to players. Players can "pull" from these character banners by acquiring primogems. To acquire primogems, players can complete the story, explore the maps, and complete daily/weekly tasks, or they can skip ahead by purchasing them directly. In Doro44's video "Why Im Quitting my F2P account in Genshin Impact," he jokes about the differences between his free-to-play account, and his main account: "...my [main] account made me very lazy because if I needed more [primogems], I would just spend more money..."  noting the protracted time and effort to achieve the same result while not spending money.<MainSuperTextCitation
                                             citationNumber="3"
@@ -66,14 +81,18 @@ These banners are one of the main methods of progressing power to players. Playe
                                             citationText="NocRan PM. (2024, December 22). How long does it take a *NEW F2P* player to get a 5 star in Genshin Impact? YouTube."
                                         /> The grind for strong characters incentivizes players to spend money to have an better experience progressing and collecting characters.
 
-(Screenshot)
-Image via NocRan PM. (2024, December 22). [How long does it take a *NEW F2P* player to get a 5 star in Genshin Impact?](https://www.youtube.com/watch?v=JYqn0IFLhkQ) YouTube.
+<DpImage 
+    src={genshinPullMath} 
+    alt="Genshin Impact pull math chart. 75 pulls equals soft pity. >75 pulls chances start going up. 90 pulls equals hard pity aka a guaranteed 5-star character." 
+    caption="Image via NocRan PM. (2024, December 22). How long does it take a *NEW F2P* player to get a 5 star in Genshin Impact? YouTube."
+/>
+
 
 ## Takeaway
 The next time you find yourself repeating a tedious task or find progression grinding to a halt, ask yourself: Am I having fun right now? And is the game offering a better time by spending money?
 
 ## References
-1. Doro44. (2025, August 23). Why I’m Quitting My F2P Account In Genshin Impact. YouTube. https://www.youtube.com/watch?v=sOzepDzEqm4
-2. Goodstein, S. (2021). When the cat’s away: Techlash, loot boxes, and regulating “dark patterns” in the video game industry’s monetization strategies. University of Colorado Law Review, 92(1), 285. https://scholar.law.colorado.edu/lawreview/vol92/iss1/6/
-3. Gutiérrez-Manjón, S., Gómez-García, S., & Bonales-Daimiel, G. (2026). Designing for monetization: A taxonomy of dark patterns in top-grossing GaaS video games. Tripodos, 59(59), 1–22. https://doi.org/10.51698/tripodos.2026.59.05
-4. NocRan PM. (2024, December 22). How long does it take a *NEW F2P* player to get a 5 star in Genshin Impact? YouTube. https://www.youtube.com/watch?v=JYqn0IFLhkQ
+1. Doro44. (2025, August 23). Why I’m Quitting My F2P Account In Genshin Impact. YouTube. <a href="https://www.youtube.com/watch?v=sOzepDzEqm4" target="_blank" rel="noopener noreferrer">youtube.com/watch?v=sOzepDzEqm4</a>
+2. Goodstein, S. (2021). When the cat’s away: Techlash, loot boxes, and regulating “dark patterns” in the video game industry’s monetization strategies. University of Colorado Law Review, 92(1), 285. <a href="https://scholar.law.colorado.edu/lawreview/vol92/iss1/6/" target="_blank" rel="noopener noreferrer">scholar.law.colorado.edu/lawreview/vol92/iss1/6/</a>
+3. Gutiérrez-Manjón, S., Gómez-García, S., & Bonales-Daimiel, G. (2026). Designing for monetization: A taxonomy of dark patterns in top-grossing GaaS video games. Tripodos, 59(59), 1–22. <a href="https://doi.org/10.51698/tripodos.2026.59.05" target="_blank" rel="noopener noreferrer">doi.org/10.51698/tripodos.2026.59.05</a>
+4. NocRan PM. (2024, December 22). How long does it take a *NEW F2P* player to get a 5 star in Genshin Impact? YouTube. <a href="https://www.youtube.com/watch?v=JYqn0IFLhkQ" target="_blank" rel="noopener noreferrer">youtube.com/watch?v=JYqn0IFLhkQ</a>
