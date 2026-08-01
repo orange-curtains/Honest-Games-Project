@@ -19,12 +19,18 @@ const { frontmatter } = Astro.props;
 
     #content ul {
         list-style-type: disc;
-        list-style-position: inside;
+        list-style-position: outside;
+        padding-left: 2rem;
     }
 
     #content ol {
         list-style-type: decimal;
-        list-style-position: inside;
+        list-style-position: outside;
+        padding-left: 2rem;
+    }
+
+    #content ol li a, #content span a {
+        word-break: break-all;
     }
     
     #dpLayoutMain h1 {
@@ -48,6 +54,27 @@ const { frontmatter } = Astro.props;
         margin-bottom: 2rem;
         margin-top: 3rem;
     }
+    @media only screen and (max-width: 768px) {
+        #dpLayoutMain h1{
+            font-size: var(--text-heroHead);
+            line-height: var(--text-heroHead--line-height);
+        }
+        #content h2 {
+        font-size: 3rem;
+        line-height: 4rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+    }
+   #content h3 {
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+    }
+        
+    }
 </style>
 
 <MainLayout
@@ -58,7 +85,7 @@ const { frontmatter } = Astro.props;
     <div class="max-w-[85%] mx-auto xl:max-w-1200">
         <hr class="border-mainBrand border-3 xl:mt-50" />
         <div class="mt-50 mb-50 xl:mt-60 xl:mb-75">
-            <p class="text-[2.4rem]/[3.4rem]">
+            <p class=" text-[1.6rem] lg:text-[2.4rem]/[3.4rem]">
                 <a href="/knowledge-base">Knowledge Base</a> / {
                     frontmatter.category.toUpperCase().charAt(0) +
                         frontmatter.category.slice(1)
@@ -69,14 +96,14 @@ const { frontmatter } = Astro.props;
     <main id="dpLayoutMain" class="mb-100">
         <div class="max-w-[85%] mx-auto xl:max-w-800">
             <h1>{frontmatter.title}</h1>
-            <div class="flex flex-row gap-20 text-[1.6rem] mb-20 text-gray-600">
-            {frontmatter.author && <p>Written by {frontmatter.author}</p>}
+            <div class="flex flex-col gap-10 lg:gap-20 mb-20 text-gray-600 lg:flex-row">
+            {frontmatter.author && <p class="text-[1.6rem] lg:text-[2rem]">Written by {frontmatter.author}</p>}
             {
                 frontmatter.date && (
-                    <div class="flex flex-row gap-30">
-                        <p class="">Posted: {frontmatter.date}</p>
+                    <div class="flex flex-row gap-10 lg:gap-30">
+                        <p class="text-[1.6rem] lg:text-[2rem]">Posted: {frontmatter.date}</p>
                         {frontmatter.lastUpdated && (
-                            <p class="">
+                            <p class="text-[1.6rem] lg:text-[2rem]">
                                 Last updated: {frontmatter.lastUpdated}
                             </p>
                         )}
@@ -89,7 +116,7 @@ const { frontmatter } = Astro.props;
             </div>
         </div>
         <section class="mb-30 xl:mb-50 max-w-[85%] mx-auto xl:max-w-1600">
-            <h2 class="text-heroSubHead mb-20 max-w-1200 mx-auto">
+            <h2 class="text-bodyHead lg:text-lgBodyHead mb-20 max-w-1200 mx-auto">
                 Related Deceptive Patterns
             </h2>
             <ul
@@ -132,7 +159,7 @@ const { frontmatter } = Astro.props;
         }
     });
 
-    // Wire up each unique citation
+    // unique citation popup
     popupMap.forEach((container, citationNumber) => {
         // Find ALL trigger links for this citation number
         const triggers = document.querySelectorAll<HTMLElement>(

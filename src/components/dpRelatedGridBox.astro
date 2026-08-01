@@ -10,14 +10,14 @@ const { title, category, description, link } = Astro.props;
         <div
             class="bg-secondaryBrand shadow-highlight rounded-2xl flex flex-col items-center py-70 px-40 lg:max-w-415 lg:h-450"
         >
-            <h2 class="text-bodyHead text-left w-full order-1 mb-30">
+            <h2 class="text-bodySubHead lg:text-bodyHead text-left w-full order-1 mb-30">
                 {title}
             </h2>
             <div
                 class="bg-mainBrand rounded-4xl w-[70%] absolute -translate-y-95 shadow-highlight lg:w-md"
             >
                 <p
-                    class="uppercase text-secondaryBrand font-bold text-center text-[3rem] order-0"
+                    class="text-bodyCopy uppercase text-secondaryBrand font-bold text-center lg:text-[3rem] order-0"
                 >
                     {category}
                 </p>
