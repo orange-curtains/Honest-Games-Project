@@ -4,12 +4,46 @@ import MainHeader from "../components/mainHeader.astro";
 import MainFooter from "../components/mainFooter.astro";
 
 const { metaTitle, metaDescription } = Astro.props;
-
 ---
 
 <html class="font-primary scroll-smooth" lang="en">
-  <MainMeta metaTitle={`${metaTitle} | Honest Games Project`} metaDescription={metaDescription} />
+  <MainMeta
+    metaTitle={`${metaTitle} | Honest Games Project`}
+    metaDescription={metaDescription}
+  />
   <body>
+    <!-- Work in Progress Banner -->
+    <div
+      class="bg-green-300 text-center flex flex-row justify-center px-50 py-10"
+      id="notice-banner"
+    >
+      <div></div>
+      <div>
+        <p class="text-md">
+          Website is under active development. Learn about it <a
+            href="/blog"
+            class="underline text-green-900">on the blog</a
+          >
+        </p>
+      </div>
+      <!-- <div>
+        <a id="notice-banner-close" class="cursor-pointer"
+          ><svg
+            width="35px"
+            height="35px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+              fill="#0F1729"></path>
+          </svg>
+        </a>
+      </div> -->
+    </div>
     <MainHeader />
     <slot />
     <MainFooter />
